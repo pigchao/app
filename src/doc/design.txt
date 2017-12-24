@@ -1,0 +1,38 @@
+ap_user
+user_id, user_phone, operation_time, password, name, sex,
+user_type //admin, questioner, answer, visitor,
+status // frozen, delete, active
+
+ap_token
+user_id, access_token, refresh_token, expire_time, valid
+
+ap_third
+user_id, third_type, token, open_id, union_id, nick_name, avatar_url
+
+ap_issue
+issue_id, title, content, user_id, deal_user_id, operation_time,
+status, //待处理、正在处理、已结贴,
+
+ap_replay
+replay_id, issue_id, content, user_id, receive_user_id, operation_time,
+content_type, // picture, text
+status, //已读、未读
+
+服务端返回
+错误消息结构
+{
+  code: 错误码
+  message: 错误消息   //当错误码无法解析时，展示错误消息
+}
+正常消息结构
+{
+  code: 200;
+  data: any;
+}
+
+规则：
+每个用户待处理以及正在处理的问题不能超过3个;
+
+发帖后，无工作人员处理，则为待处理状态。
+工作人员点击处理问题，则咨询变为正在处理了状态。
+问题处理完后，工作人员可以结帖，已结贴咨询无法再发送回复。

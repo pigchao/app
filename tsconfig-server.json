@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/server",
+        "sourceMap": true,
+        "strictNullChecks": false,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
+    },
+    "include": [
+        "./src/server/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

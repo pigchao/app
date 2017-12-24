@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "transform-runtime", 
+    "transform-object-rest-spread", 
+    "transform-class-properties", 
+    ["system-import-transformer", { "modules": "common", "syntax": { "import": false } }]
+  ],
+  "presets": [[
+    "env", {
+      "targets": {
+        "node": "current"
+      }
+    }], "react"
+  ]
+}

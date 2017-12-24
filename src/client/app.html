@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script>
+      (function () {
+        function setRem() {
+          const curWidth = document.documentElement.clientWidth || window.screen.width;
+          const basicWidth = 375;
+          const basicFontSize = 62.5;
+          const calcFontSize = curWidth / basicWidth * basicFontSize;
+          document.documentElement.style.fontSize = calcFontSize + '%';
+        }
+        setRem();
+        window.addEventListener('resize', function () {
+          setRem();
+        })
+      })()
+    </script>
+</head>
+<body>
+    <div id="react-app">
+    </div>
+</body>
+</html>

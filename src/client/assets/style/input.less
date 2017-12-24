@@ -1,0 +1,42 @@
+.app-input {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #F6F7F8;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4A4A4A;
+  border-radius: 4px;
+  padding: 14px 20px;
+}
+
+.app-input-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  .app-input {
+    &:not(:first-child){
+      padding-left: 75px;
+    }
+    &:not(:last-child){
+      padding-right: 55px;
+    }
+  }
+
+  .app-input-prefix{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    z-index: 1;
+    line-height: 0;
+  }
+  .app-input-suffix{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1;
+    line-height: 0;
+  }
+}
