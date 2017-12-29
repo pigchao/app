@@ -2,7 +2,7 @@
   "apps": [
     {
       "exec_mode": "fork_mode",
-      "script": "./src/server/app.js",
+      "script": "./dist/server/main.js",
       "name": "app",
       "error_file": "~/webapp/logs/app.err.log",
       "out_file": "~/webapp/logs/app.out.log"
