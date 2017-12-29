@@ -1,6 +1,9 @@
 #!/bin/env node
 //  Webull sample Node application
 import wechatRouter from './route/api/wechat';
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
 const config = require('../../config');
 /**
  *  Define the Server application.
@@ -27,6 +30,12 @@ const ServerApp = function () {
 			app = require('./devServer').default;
 		}
 
+		const httpServer = http.createServer(app);
+		const httpsServer = https.createServer({
+			key: fs.readFileSync('./cert/2_www.lqs6300.tk.key', 'utf8'),
+			cert: fs.readFileSync('./cert/1_www.lqs6300.tk_bundle.crt', 'utf8')
+		}, app);
+
 		app.use('/api', wechatRouter);
 
 		app.use(function(req, res, next) {
@@ -47,12 +56,20 @@ const ServerApp = function () {
 			}
 		});
 
-		app.listen(config.port, config.host, error => {
+		httpServer.listen(config.port, config.host, error => {
 			if (error) {
 				console.log(error);
 			}
 			console.log('%s: Node server started on %s:%d ...',
 				Date.now(), config.host, config.port);
+		});
+
+		httpsServer.listen(config.sslport, config.host, error => {
+			if (error) {
+				console.log(error);
+			}
+			console.log('%s: Node server started on %s:%d ...',
+				Date.now(), config.host, config.sslport);
 		});
 	};
 

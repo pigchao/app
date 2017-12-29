@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc -p tsconfig-server.json && cross-env NODE_ENV=development node dist/server/main.js",
-    "build": "webpack -p --progress --profile --colors --config cross-env NODE_ENV=production webpack.prod.config.js",
+    "build": "cross-env NODE_ENV=production webpack -p --progress --profile --colors --config webpack.prod.config.js",
     "start-prod": "tsc -p tsconfig-server.json && cross-env NODE_ENV=production node dist/server/main.js",
-    "build-lib": "webpack -p --progress --profile --colors --config webpack.dll.config.js"
+    "build-lib": "webpack -p --progress --profile --colors --config webpack.dll.config.js",
+    "restart": "pm2 delete pm2.json && pm2 start pm2.json"
   },
   "repository": {
     "type": "git",

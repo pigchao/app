@@ -6,9 +6,9 @@
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "module": "commonjs",
-        "target": "es6",
+        "target": "es5",
+        "lib": ["es6","dom"],
         "noImplicitAny": false,
-        "moduleResolution": "node",
         "jsx": "react",
         "typeRoots": [
             "./node_modules/@types"
