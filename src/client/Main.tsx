@@ -16,7 +16,10 @@ export default class Main extends React.PureComponent<MainProps, any>{
 
 	render(){
 		return (
-			<Loading visible={true}/>
+			<div>
+				{/*<Loading visible={true}/>*/}
+				我新提交的代码
+			</div>
 		)
 	}
 }
