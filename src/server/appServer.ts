@@ -22,7 +22,11 @@ server.get('/zzq', function(req, res, next) {
 });
 
 server.get('/lwc', function(req, res, next) {
-	res.send(fs.readFileSync(path.resolve(__dirname, '../../dist/client/app.html')));
+	res.writeHead(200, {
+		"Content-Type": "text/html"
+	});
+	res.write(fs.readFileSync(path.resolve(__dirname, '../../dist/client/app.html')));
+	res.end();
 });
 
 server.use(express.static(path.resolve(__dirname, '../../dist/client')));
