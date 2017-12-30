@@ -13,6 +13,18 @@ if(process.env.NODE_ENV !== 'production'){
 	server.use(compression());
 }
 
+server.get('/', function(res, res, next) {
+	res.send('你访问了根目录');
+});
+
+server.get('/zzq', function(res, res, next) {
+	res.send('你访问了曽子强目录');
+});
+
+server.get('/lwc', function(res, res, next) {
+	res.send(fs.readFileSync(path.resolve(__dirname, '../../dist/client/app.html')));
+});
+
 server.use(express.static(path.resolve(__dirname, '../../dist/client')));
 
 export default server;
